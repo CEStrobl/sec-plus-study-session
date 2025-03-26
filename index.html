@@ -3,37 +3,42 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
 	<title>Sec+ Study Session</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto+Mono&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
-	<h1>Sec+ Study Session</h1>
-	<div>
+	<nav class="navbar">
+		<div class="nav-title">Sec+ Study Session</div>
+	</nav>
+
+	<main class="card">
 		<p id="points">Points: 0</p>
 
-	</div>
+		<p id="acronymdisplay" class="acronym">LDAP</p>
 
-	<p id="acronymdisplay">LDAP</p>
-	<div class="guess">
-		<div id="word1"></div>
-		<div id="word2"></div>
-		<div id="word3"></div>
-		<div id="word4"></div>
-	</div>
-	<div class="inputarea">
-		<input type="text" autocomplete="off" id="input">
-	</div>
+		<div class="guess">
+			<div id="word1" class="word-slot"></div>
+			<div id="word2" class="word-slot"></div>
+			<div id="word3" class="word-slot"></div>
+			<div id="word4" class="word-slot"></div>
+		</div>
 
-	<div class="container">
-		<p id="answer" style="display: none;"></p>
-		<button id="revealbutton" onclick="game.revealans()">Reveal Answer</button>
-	</div>
+		<div class="inputarea">
+			<input type="text" autocomplete="off" id="input" placeholder="Enter your guess...">
+		</div>
 
-	<p id="pointwarn" style="display: none;">You will not gain a point this round.</p>
+		<div class="container">
+			<p id="answer" class="answer" style="display: none;"></p>
+			<button id="revealbutton" onclick="game.revealans()">Reveal Answer</button>
+		</div>
 
-	
+		<p id="pointwarn" class="warning" style="display: none;">You will not gain a point this round.</p>
+	</main>
+
+	<script src="storage.js"></script>
+	<script src="script.js"></script>
 </body>
-<script src="storage.js"></script>
-<script src="script.js"></script>
 </html>

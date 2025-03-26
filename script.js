@@ -26,6 +26,7 @@ const game = {
 	selection: [],
 	points: 0,
 	pointeligable: true,
+	wordsfound: 0,
 
 
 	ui: {
@@ -125,7 +126,7 @@ const game = {
 	checkPartialAnswer() {
 		const current = this.selection[this.currAcro];
 		const userInput = this.ui.input.value.trim().toLowerCase();
-		const userWords = userInput.split(" ");
+		const userWords = userInput.split(" ") || userInput;
 		const correctWords = current.full.toLowerCase().split(" ");
 	
 		const feedbackEls = [
@@ -136,14 +137,22 @@ const game = {
 		];
 	
 		this.clearFeedback();
+
+		this.wordsfound = 0;
 	
-		let matched = 0;
-	
-		for (let i = 0; i < feedbackEls.length; i++) {
-		if (userWords[i] && userWords[i] === correctWords[i]) {
-			feedbackEls[i].innerText = capitalize(userWords[i]);
-			matched++;
-		}
+		// look thru user input
+		for (let i = 0; i < userWords.length; i++) {
+			const x = userWords[i];
+			
+			// if this word is in the final ans
+			if (correctWords.includes(x)) {
+				// find the index of the correct word
+				const index = correctWords.indexOf(x);
+				// add it to the feedback at that index
+				feedbackEls[index].innerHTML = capitalize(correctWords[index]);
+
+				this.wordsfound++;
+			}
 		}
 	},
 	
@@ -152,7 +161,8 @@ const game = {
 		const current = this.selection[this.currAcro];
 		const userInput = this.ui.input.value.trim().toLowerCase();
 	
-		if (userInput === current.full.toLowerCase()) {
+		if (userInput === current.full.toLowerCase() 
+			|| this.wordsfound === current.acro.length) {
 
 			if(this.pointeligable) {this.points++;}
 			
@@ -175,6 +185,7 @@ const game = {
 
 // Capitalize helper
 function capitalize(word) {
+	word+=""
 	return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
