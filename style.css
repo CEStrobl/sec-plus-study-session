@@ -1,7 +1,7 @@
 body{
 	display: flex;
 	justify-content: center;
-    align-items: center;
+	align-items: center;
 	flex-direction: column;
 
 	font-family: Arial, Helvetica, sans-serif;
@@ -22,20 +22,19 @@ input {
 
 button {
 	font-size: 16px;
-	width: 100px;
+	width: 150px;
 	height: 45px;
-	padding: 10px 20px;
-	margin: 5px;
+	margin: 10px;
 	
 	border: none;
-	background-color: forestgreen;
+	background-color: rgb(34, 139, 137);
 	color: white;
 
 	transition: 0.2s ease-in-out;
 }
 
 button:hover{
-	background-color: rgb(109, 177, 109);
+	background-color: rgb(109, 176, 177);
 }
 
 
@@ -44,21 +43,35 @@ button:hover{
 	margin: 20px 5px;
 }
 
+#pointwarn {
+	font-size: 14px;
+	color: gray;
+}
+
 .guess {
 	display: flex;
 	justify-content: space-evenly;
 	width: 100%;
-	max-width: 400px;
+	max-width: 600px;
 	margin: 10px 10px;
 }
 
 .guess div {
-	width: 80px;
+	width: 100px;
 	height: 20px;
 	border-bottom: 2px rgb(74, 72, 72) solid;
 	padding: 5px;
+	font-size: 18px;
 
+	text-align: center;
+	text-anchor: middle;
+}
+
+.container {
 	display: flex;
+	align-items: center;
 	justify-content: center;
-    align-items: center;
+	width: 100%;
+	max-width: 600px;
+	min-height: 80px;
 }
