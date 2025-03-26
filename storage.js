@@ -84,4 +84,5 @@ const securityPlusAcronyms = [
 	{ acro: "XSS", full: "Cross Site Scripting", category: "Threats", difficulty: "medium" },
 	{ acro: "YARA", full: "Yet Another Recursive Acronym", category: "Monitoring", difficulty: "hard" },
 	{ acro: "SCAP", full: "Security Content Automation Protocol", category: "Compliance", difficulty: "hard" },
+	{ acro: "DRM", full: "Digital Rights Management", category: "Compliance", difficulty: "medium" },
 ];
